@@ -9,7 +9,7 @@ class NationalPark:
 
     @name.setter
     def name(self, name):
-        if not hasattr(self, "_name") and isinstance(name, str) and len(name) >= 3:
+        if not hasattr(self, "name") and isinstance(name, str) and len(name) >= 3:
             self._name = name
 
     # Returns a list of all trips at a particular national park. Trips must be of type Trip:
@@ -110,7 +110,7 @@ class Visitor:
 
     # Returns a unique list of all parks that visitor has visited. Parks must be of type NationalPark:
     def national_parks(self):
-        return list({trip.national_park for trip in self.trips()})
+        return list(set(trip.national_park for trip in self.trips()))
 
     # Receives a NationalPark object as argument. Returns the total number of times a visitor visited the park passed in as argument. Returns 0 if the visitor has never visited the park:
     def total_visits_at_park(self, park):
